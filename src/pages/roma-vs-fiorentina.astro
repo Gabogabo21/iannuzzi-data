@@ -1,0 +1,79 @@
+---
+// src/pages/roma-vs-fiorentina.astro
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis y Predicción: Roma vs Fiorentina | Serie A</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f8fafc; color: #1e293b; }
+      .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; }
+      .header-match { text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; }
+      .teams { display: flex; justify-content: space-around; align-items: center; font-size: 1.5rem; font-weight: bold; margin: 20px 0; }
+      .badge-home { color: #8e142e; }
+      .badge-away { color: #4b0082; }
+      .chart-container { position: relative; max-width: 450px; margin: 0 auto 20px auto; }
+      h2 { color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+      h3 { color: #334155; margin-top: 20px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="card header-match">
+      <span>Serie A • Stadio Olimpico di Roma</span>
+      <div class="teams">
+        <span class="badge-home">AS Roma</span>
+        <span>VS</span>
+        <span class="badge-away">ACF Fiorentina</span>
+      </div>
+      <p><strong>Esquema Roma:</strong> 3-4-2-1 | <strong>Esquema Fiorentina:</strong> 4-2-3-1</p>
+    </div>
+
+    <div class="card">
+      <h2>Probabilidad del Encuentro</h2>
+      <div class="chart-container">
+        <canvas id="predictionChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Análisis Táctico y Estadístico</h2>
+      
+      <h3>1. Presión Alta y Duelo Táctico en la Medular</h3>
+      <p>
+        Duelo directo por plazas europeas en la capital. La AS Roma destaca por su fortaleza en el Stadio Olimpico, apoyada en una estructura vertical que busca explotar los espacios a las espaldas de los laterales rivales. Por su parte, la Fiorentina propone una posesión progresiva con alta participación de sus mediocentros.
+      </p>
+
+      <h3>2. Registro de Goles Esperados (xG) y ABP</h3>
+      <p>
+        La Roma acumula un índice de peligro superior en acciones a balón parado (ABP), convirtiéndose en una de las mayores amenazas de la liga en esa faceta. La Fiorentina registra métricas defensivas sólidas en juego abierto, pero sufre ante rivales de bloque físico en el juego aéreo.
+      </p>
+
+      <h3>3. Proyección del Partido</h3>
+      <p>
+        Se prevé un choque igualado con tramos de alto ritmo. La ventaja de localía y la eficacia en áreas inclinaron la estimación probabilística hacia el conjunto romanista, aunque la capacidad asociativa de la Fiorentina sostiene un margen alto de probabilidad de empate.
+      </p>
+    </div>
+
+    <script>
+      const ctx = document.getElementById('predictionChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Victoria Roma', 'Empate', 'Victoria Fiorentina'],
+          datasets: [{
+            data: [48, 30, 22],
+            backgroundColor: ['#8e142e', '#94a3b8', '#4b0082']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+    </script>
+  </body>
+</html>

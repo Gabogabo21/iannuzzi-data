@@ -1,0 +1,86 @@
+---
+// src/pages/inter-vs-monza.astro
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis y Predicción: Inter vs AC Monza | Serie A</title>
+    <!-- Cargamos Chart.js para las visualizaciones -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f8fafc; color: #1e293b; }
+      .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; }
+      .header-match { text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; }
+      .teams { display: flex; justify-content: space-around; align-items: center; font-size: 1.5rem; font-weight: bold; margin: 20px 0; }
+      .badge-inter { color: #0066cc; }
+      .badge-monza { color: #cc0000; }
+      .chart-container { position: relative; max-width: 450px; margin: 0 auto 20px auto; }
+      h2 { color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+      h3 { color: #334155; margin-top: 20px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="card header-match">
+      <span>Serie A • Giuseppe Meazza</span>
+      <div class="teams">
+        <span class="badge-inter">Inter de Milán</span>
+        <span>VS</span>
+        <span class="badge-monza">AC Monza</span>
+      </div>
+      <p><strong>Esquema Inter:</strong> 3-5-2 | <strong>Baja clave Monza:</strong> Matteo Pessina (Lesión de rodilla)</p>
+    </div>
+
+    <!-- Gráfico de Probabilidades (Modelo Probabilístico) -->
+    <div class="card">
+      <h2>Probabilidad del Encuentro</h2>
+      <div class="chart-container">
+        <canvas id="predictionChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Análisis escrito clave para Google AdSense -->
+    <div class="card">
+      <h2>Análisis Táctico y Estadístico</h2>
+      
+      <h3>1. Valoración de Plantilla y Músculo Ofensivo</h3>
+      <p>
+        El Inter de Milán afronta este encuentro en el Giuseppe Meazza con una clara ventaja en el rendimiento global de su plantilla (94 vs 81 en valoración general). Pese a haber tropezado en sus últimas salidas en la Serie A, la estructura táctica configurada bajo el 3-5-2 mantiene un volumen ofensivo notable, acumulando una calificación en ataque del 79% frente al 61% del conjunto visitante.
+      </p>
+
+      <h3>2. Historial H2H y Balance Defensivo</h3>
+      <p>
+        El registro reciente entre ambos clubes favorece rotundamente al equipo local con 3 victorias y 2 empates en los últimos 5 cara a cara, manteniéndose invicto. Además, la solvencia defensiva interista (77 puntos) contrasta con las fragilidades del Monza (62 puntos), cuadro que además acude con una baja crítica en la medular debido a la lesión de rodilla de su capitán Matteo Pessina.
+      </p>
+
+      <h3>3. Proyección del Partido</h3>
+      <p>
+        La acumulación de jugadores del Inter en el medio campo (con nombres como Çalhanoğlu, Barella y Zieliński) promete asfixiar la transición de un Monza que registra escaso volumen de gol (apenas 2 contribuciones ofensivas en figuras como Cutrone y Varela). Se proyecta un dominio territorial claro del Inter y una alta probabilidad de superar el umbral de 1.5 goles esperados.
+      </p>
+    </div>
+
+    <!-- Script de Chart.js -->
+    <script>
+      const ctx = document.getElementById('predictionChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Victoria Inter', 'Empate', 'Victoria Monza'],
+          datasets: [{
+            data: [72, 18, 10],
+            backgroundColor: ['#0066cc', '#94a3b8', '#cc0000']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

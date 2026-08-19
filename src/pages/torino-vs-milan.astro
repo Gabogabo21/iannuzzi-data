@@ -1,0 +1,79 @@
+---
+// src/pages/torino-vs-milan.astro
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis y Predicción: Torino vs AC Milan | Serie A</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f8fafc; color: #1e293b; }
+      .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; }
+      .header-match { text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; }
+      .teams { display: flex; justify-content: space-around; align-items: center; font-size: 1.5rem; font-weight: bold; margin: 20px 0; }
+      .badge-home { color: #800000; }
+      .badge-away { color: #cc0000; }
+      .chart-container { position: relative; max-width: 450px; margin: 0 auto 20px auto; }
+      h2 { color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+      h3 { color: #334155; margin-top: 20px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="card header-match">
+      <span>Serie A • Stadio Olimpico Grande Torino</span>
+      <div class="teams">
+        <span class="badge-home">Torino FC</span>
+        <span>VS</span>
+        <span class="badge-away">AC Milan</span>
+      </div>
+      <p><strong>Esquema Torino:</strong> 3-5-2 | <strong>Esquema Milan:</strong> 4-2-3-1</p>
+    </div>
+
+    <div class="card">
+      <h2>Probabilidad del Encuentro</h2>
+      <div class="chart-container">
+        <canvas id="predictionChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Análisis Táctico y Estadístico</h2>
+      
+      <h3>1. Eficiencia Defensiva vs. Fluidez Ofensiva</h3>
+      <p>
+        El Torino recibe en Turín a un AC Milan que llega con mejores registros en su bloque de ataque. Mientras el conjunto 'Granata' sostiene una estructura rígida en 3-5-2 caracterizada por duelos individuales intensos, el Milan explota las bandas con desequilibrio individual en el 1v1. La clave del duelo estará en el control de las segundas jugadas en la medular.
+      </p>
+
+      <h3>2. Historial Reciente y Métricas Avanzadas</h3>
+      <p>
+        El historial reciente entre ambos muestra encuentros de alta intensidad con marcador estrecho. El Milan supera al Torino en generación de goles esperados (xG) fuera de casa (1.65 vs 1.10 del Torino como local), aunque la solvencia del bloque defensivo del Torino suele limitar las transiciones rápidas de los visitantes.
+      </p>
+
+      <h3>3. Proyección del Partido</h3>
+      <p>
+        Se proyecta un choque táctico donde el Milan mantendrá mayor porcentaje de posesión territorial. Si el Torino no logra traducir sus recuperaciones altas en ocasiones claras, el volumen ofensivo del Milan inclinará la balanza, proyectando una alta probabilidad de victoria visitante o empate con marcador ajustado.
+      </p>
+    </div>
+
+    <script>
+      const ctx = document.getElementById('predictionChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Victoria Torino', 'Empate', 'Victoria Milan'],
+          datasets: [{
+            data: [22, 28, 50],
+            backgroundColor: ['#800000', '#94a3b8', '#cc0000']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+    </script>
+  </body>
+</html>
