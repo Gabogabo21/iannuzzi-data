@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iannuzzi Data | Análisis Estadístico y Predicción Serie A</title>
-    <!-- Google Fonts para una tipografía más deportiva y limpia -->
+    <!-- Google Fonts para tipografía deportiva -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -31,6 +31,8 @@
         color: var(--text-main);
         line-height: 1.6;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
       /* Navegación Superior */
@@ -62,10 +64,10 @@
 
       .logo span { color: var(--accent-blue); }
 
-      /* Banner Principal / Hero */
+      /* Hero Section */
       .hero {
         text-align: center;
-        padding: 60px 20px 40px;
+        padding: 50px 20px 30px;
         max-width: 800px;
         margin: 0 auto;
       }
@@ -83,46 +85,43 @@
       }
 
       .hero h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         font-weight: 800;
         line-height: 1.2;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
       }
 
       .hero p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: var(--text-muted);
       }
 
-      /* Contenedor Principal */
+      /* Main Content */
       main {
         max-width: 1100px;
         margin: 0 auto;
         padding: 20px;
+        flex: 1;
       }
 
       .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-bottom: 25px;
         border-bottom: 1px solid var(--border-color);
         padding-bottom: 10px;
       }
 
       .section-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 700;
       }
 
-      /* Parrilla de Tarjetas (Grid) */
+      /* Grid de tarjetas */
       .grid-posts {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 25px;
       }
 
-      /* Estilo de las Tarjetas */
       .card-post {
         background-color: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -134,8 +133,6 @@
         flex-direction: column;
         justify-content: space-between;
         transition: all 0.25s ease;
-        position: relative;
-        overflow: hidden;
       }
 
       .card-post:hover {
@@ -154,18 +151,17 @@
         border-radius: 6px;
         margin-bottom: 15px;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
       }
 
       .card-post h3 {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         font-weight: 700;
         margin-bottom: 10px;
         color: var(--text-main);
       }
 
       .card-post p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         color: var(--text-muted);
         margin-bottom: 20px;
       }
@@ -180,41 +176,54 @@
         margin-top: auto;
       }
 
-      /* Pie de página */
+      /* Pie de página (Footer) */
       footer {
         text-align: center;
-        padding: 40px 20px;
+        padding: 30px 20px;
         color: var(--text-muted);
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         border-top: 1px solid var(--border-color);
-        margin-top: 60px;
+        margin-top: 50px;
+        background-color: #0b1120;
+      }
+
+      footer a {
+        color: var(--accent-blue);
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.2s;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-links {
+        margin-top: 8px;
       }
     </style>
   </head>
 
   <body>
-    <!-- Menú Superior -->
     <nav>
       <div class="nav-container">
         <a href="/" class="logo">Iannuzzi<span>Data</span></a>
       </div>
     </nav>
 
-    <!-- Banner Principal -->
     <header class="hero">
       <span class="hero-tag">Serie A Analytics</span>
       <h1>Análisis Estadístico y Modelos Predictivos</h1>
       <p>Métricas avanzadas, estimación probabilística y lectura táctica de la liga italiana.</p>
     </header>
 
-    <!-- Contenido Principal -->
     <main>
       <div class="section-header">
         <h2 class="section-title">Análisis de la Jornada</h2>
       </div>
 
       <div class="grid-posts">
-        <!-- Tarjeta 1: Inter vs Monza -->
+        <!-- Partido 1: Inter vs Monza -->
         <a href="/inter-vs-monza" class="card-post">
           <div>
             <span class="card-badge">Serie A • Previa</span>
@@ -227,7 +236,7 @@
           </div>
         </a>
 
-        <!-- Tarjeta 2: Torino vs Milan -->
+        <!-- Partido 2: Torino vs Milan -->
         <a href="/torino-vs-milan" class="card-post">
           <div>
             <span class="card-badge">Serie A • Previa</span>
@@ -240,7 +249,7 @@
           </div>
         </a>
 
-        <!-- Tarjeta 3: Roma vs Fiorentina -->
+        <!-- Partido 3: Roma vs Fiorentina -->
         <a href="/roma-vs-fiorentina" class="card-post">
           <div>
             <span class="card-badge">Serie A • Previa</span>
@@ -252,12 +261,41 @@
             <span>→</span>
           </div>
         </a>
+
+        <!-- Partido 4: Frosinone vs Juventus -->
+        <a href="/frosinone-vs-juventus" class="card-post">
+          <div>
+            <span class="card-badge">Serie A • Previa</span>
+            <h3>Frosinone Calcio vs Juventus</h3>
+            <p>Eficacia en áreas y solidez en bloque bajo: el reto de la Juventus ante la presión local en el Benito Stirpe.</p>
+          </div>
+          <div class="card-footer">
+            <span>Ver Análisis Completo</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Partido 5: Genoa vs Napoli -->
+        <a href="/genoa-vs-napoli" class="card-post">
+          <div>
+            <span class="card-badge">Serie A • Previa</span>
+            <h3>Genoa CFC vs SSC Napoli</h3>
+            <p>Dominio territorial y posesión progresiva: examen de madurez para el bloque napolitano en Luigi Ferraris.</p>
+          </div>
+          <div class="card-footer">
+            <span>Ver Análisis Completo</span>
+            <span>→</span>
+          </div>
+        </a>
       </div>
     </main>
 
-    <!-- Pie de página -->
+    <!-- Pie de página estructurado -->
     <footer>
       <p>© Iannuzzi Data. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="/privacidad">Política de Privacidad</a>
+      </div>
     </footer>
   </body>
 </html>

@@ -1,0 +1,79 @@
+---
+// src/pages/genoa-vs-napoli.astro
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis y Predicción: Genoa vs Napoli | Serie A</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f8fafc; color: #1e293b; }
+      .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; }
+      .header-match { text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; }
+      .teams { display: flex; justify-content: space-around; align-items: center; font-size: 1.5rem; font-weight: bold; margin: 20px 0; }
+      .badge-home { color: #991b1b; }
+      .badge-away { color: #0284c7; }
+      .chart-container { position: relative; max-width: 450px; margin: 0 auto 20px auto; }
+      h2 { color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+      h3 { color: #334155; margin-top: 20px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="card header-match">
+      <span>Serie A • Stadio Luigi Ferraris</span>
+      <div class="teams">
+        <span class="badge-home">Genoa CFC</span>
+        <span>VS</span>
+        <span class="badge-away">SSC Napoli</span>
+      </div>
+      <p><strong>Esquema Genoa:</strong> 3-5-2 | <strong>Esquema Napoli:</strong> 4-3-3</p>
+    </div>
+
+    <div class="card">
+      <h2>Probabilidad del Encuentro</h2>
+      <div class="chart-container">
+        <canvas id="predictionChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Análisis Táctico y Estadístico</h2>
+      
+      <h3>1. Posesión Progresiva y Presión Tras Pérdida</h3>
+      <p>
+        El SSC Napoli busca imponer su estilo asociativo mediante una posesión progresiva orientada a hundir al rival en su propio campo. El Genoa responderá en el Luigi Ferraris instalando un bloque medio-bajo compacto, confiando en repliegues intensos y salidas rápidas para tomar desorganizada a la zaga napolitana.
+      </p>
+
+      <h3>2. Volumen de Remates e Índice xG</h3>
+      <p>
+        Las métricas avanzadas otorgan al Napoli un volumen superior de disparos a puerta y una media alta de goles esperados (xG) fuera de casa (1.78). El Genoa necesitará maximizar su efectividad en acciones a balón parado y sostener una actuación destacada de su portería para contrarrestar el asedio visitante.
+      </p>
+
+      <h3>3. Proyección del Partido</h3>
+      <p>
+        La capacidad de desequilibrio individual del Napoli por las bandas sostiene una probabilidad superior de victoria. Sin embargo, el factor cancha en Génova históricamente complica el trámite a los equipos candidatos, abriendo un margen importante a la posibilidad de empate.
+      </p>
+    </div>
+
+    <script>
+      const ctx = document.getElementById('predictionChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Victoria Genoa', 'Empate', 'Victoria Napoli'],
+          datasets: [{
+            data: [20, 28, 52],
+            backgroundColor: ['#991b1b', '#94a3b8', '#0284c7']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+    </script>
+  </body>
+</html>
